@@ -7,28 +7,16 @@ FSJS project 2 - List Filter and Pagination
 
 
 /*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
+   Add two global variables
+   First variable has a value of all items by class name
+   Second variable holds a value of 10
 ***/
+//const studentList = document.querySelectorAll('div li');
 const studentList = document.getElementsByClassName('student-item cf');
-//console.log(studentList);
+
+//const studentList = document.querySelector('.student-list');
+console.log(studentList);
 const numberItems = 10;
-
-function showPage(list, page){
-   var startIndex = (page * 10) - 10;
-   var endIndex = page * 10;
-}
-
-for(var i >= startIndex; i < endIndex; i++ ){
-   studentList[i]
-}
-
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -43,6 +31,21 @@ for(var i >= startIndex; i < endIndex; i++ ){
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
+function showPage(studentList, page){
+   let startIndex = (page * numberItems) - numberItems;
+   let endIndex = page * numberItems;
+
+   for(let i = 0; i < studentList.length; i++ ){
+      if (i => startIndex && i < endIndex)  {
+         studentList[i].style.display ='none';  
+      }  else {
+         studentList[i].style.display = 'block';
+      }
+   }
+}
+
+console.log(showPage);
+
 
 
 
