@@ -44,7 +44,8 @@ function showPage(studentList, page){
    }
 }
 
-console.log(showPage);
+
+return(showPage);
 
 
 
