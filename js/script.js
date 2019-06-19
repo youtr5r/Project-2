@@ -2,22 +2,12 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
-
-/*** 
-   Add two global variables
-   First variable has a value of all items by class name
-   Second variable holds a value of 10
-***/
 //const studentList = document.querySelectorAll('div li');
+//Create Global Variable with a value of student list
 const studentList = document.getElementsByClassName('student-item cf');
-
-//const studentList = document.querySelector('.student-list');
+const itemsPerPage = 10;
 console.log(studentList);
-const numberItems = 10;
-
 /*** 
    Create the `showPage` function to hide all of the items in the 
    list except for the ten you want to show.
@@ -31,24 +21,28 @@ const numberItems = 10;
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
+function getNumberOfPages() {
+   return Math.ceil(studentList.length / itemsPerPage);
+}
+
+//this functions only allows 10 items to show.
 function showPage(studentList, page){
-   let startIndex = (page * numberItems) - numberItems;
-   let endIndex = page * numberItems;
+   let startIndex = (page * itemsPerPage) - itemsPerPage;
+   let endIndex = page * itemsPerPage;
 
    for(let i = 0; i < studentList.length; i++ ){
-      if (i => startIndex && i < endIndex)  {
-         studentList[i].style.display ='none';  
+      if (i >= startIndex && i < endIndex)  {
+         studentList[i].style.display = 'block';  
       }  else {
-         studentList[i].style.display = 'block';
+         studentList[i].style.display = 'none';
       }
    }
 }
 
-
-return(showPage);
-
-
-
+/*** 
+call the showPage function to verify only 10 items show
+showPage(studentList, 1);
+***/
 
 
 /*** 
@@ -56,8 +50,15 @@ return(showPage);
    functionality to the pagination buttons.
 ***/
 
+function appendPageLinks(studentList) {
+   let div = document.getElementsByTagName('div');
+   let a = document.getElementsByTagName('a');
+   ul.appendChild(li);
 
 
-
-
+//place loop in function
+for(let i = 0; i < getNumberOfPages(); i++) {
+    
+  }
+}
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
