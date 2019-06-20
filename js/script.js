@@ -67,11 +67,14 @@ for(let i = 1; i <= getNumberOfPages(); i++) {
     ul.appendChild(li);
     li.appendChild(a);
     a.innerHTML = i;
-    div.addEventListener('click', (event) => {
+    a.addEventListener('click', e => {
+         e.target.className = "A";
          
     });
   }
 }
-//showPage(studentList,);
+//showPage(studentList, 1);
 appendPageLinks();
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
+
+//let link = document.querySelectAll('.pagination a')
