@@ -5,7 +5,7 @@ FSJS project 2 - List Filter and Pagination
 
 //const studentList = document.querySelectorAll('div li');
 //Create Global Variable with a value of student list
-const studentList = document.getElementsByClassName('student-item cf');
+const studentList = document.getElementsByClassName('student-item');
 const itemsPerPage = 10;
 console.log(studentList);
 /*** 
@@ -21,9 +21,10 @@ console.log(studentList);
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
-function getNumberOfPages() {
-   return Math.ceil(studentList.length / itemsPerPage);
-}
+   function getNumberOfPages() {
+      return Math.ceil(studentList.length / itemsPerPage);
+   }
+
 
 //this functions only allows 10 items to show.
 function showPage(studentList, page){
@@ -41,7 +42,7 @@ function showPage(studentList, page){
 
 /*** 
 call the showPage function to verify only 10 items show
-showPage(studentList, 1);
+showPage(studentList, 5);
 ***/
 
 
@@ -51,17 +52,26 @@ showPage(studentList, 1);
 ***/
 
 function appendPageLinks(studentList) {
+   let numberPages = getNumberOfPages
    //create div element dynamically
    let div = document.createElement('div');
-   div.className =("pagination");
-   document.page.appendChild(div);
-   let a = document.getElementsByTagName('a');
-   ul.appendChild(li);
+   div.className =('pagination');
+   let ul = document.createElement('ul')
+   document.querySelector('.page').appendChild(div);
+   div.appendChild(ul);
+   
 
-
-//place loop in function
-for(let i = 0; i < getNumberOfPages(); i++) {
-    
+for(let i = 1; i <= getNumberOfPages(); i++) {
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    ul.appendChild(li);
+    li.appendChild(a);
+    a.innerHTML = i;
+    div.addEventListener('click', (event) => {
+         
+    });
   }
 }
+//showPage(studentList,);
+appendPageLinks();
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
