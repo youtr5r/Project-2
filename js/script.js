@@ -21,7 +21,7 @@ const itemsPerPage = 10;
 ***/
 
 
-function showPage(list, page){
+function showPage(studentList, page) {
    let startIndex = (page * itemsPerPage) - itemsPerPage;
    let endIndex = page * itemsPerPage;
 
@@ -42,33 +42,34 @@ showPage(studentList, 1);
 
 /*** 
    Create the append page function with a parameter of total items
-
+      create element starting with parent and append child
 ***/
 
-function appendPageLinks(studentList) {
-   let numberPages = getNumberOfPages
+function appendPageLinks() {
+   
    //create div element dynamically
-   let page = document.querySelector('.page')
+   let page = document.querySelector('.page');
    let div = document.createElement('div');
-   let ul = document.createElement('ul')
+   let ul = document.createElement('ul');
    div.className =('pagination');
    div.setAttribute('class', 'pagination');
    page.appendChild(div);
    div.appendChild(ul);
    
 
-for(let i = 0; i < getNumberOfPages(); i++) {
+for(let i = 1; i <= getNumberOfPages(studentList); i++) {
     let li = document.createElement('li');
     let a = document.createElement('a');
+    a.setAttribute('href', '#');
     ul.appendChild(li);
     li.appendChild(a);
-    a.textContent = i + 1;
+    a.textContent = i;
     a.addEventListener('click', (event) => {
          let a = document.querySelectorAll('.pagination li a');
-         for(let b = 0; b < a.length; b++ ){
-            a[b].className = '';
+         for(let i = 0; i < a.length; i++ ){
+            a[i].className = '';
          }
-            event.target.className = 'acvtive';
+            event.target.className = 'active';
             showPage(studentList, event.target.textContent);
          
     });
