@@ -66,8 +66,8 @@ for(let i = 1; i <= getNumberOfPages(studentList); i++) {
     a.textContent = i;
     a.addEventListener('click', (event) => {
          let a = document.querySelectorAll('.pagination li a');
-         for(let i = 0; i < a.length; i++ ){
-            a[i].className = '';
+         for(let j = 0; j < a.length; j++ ){
+            a[j].className = '';
          }
             event.target.className = 'active';
             showPage(studentList, event.target.textContent);
